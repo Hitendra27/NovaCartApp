@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,12 +51,20 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFF3E5F44))
+                .background(
+                    Color(0xFF3E5F44),
+                    shape = RoundedCornerShape(
+                        topStart = 24.dp,
+                        topEnd = 0.dp,
+                        bottomStart = 0.dp,
+                        bottomEnd = 0.dp
+                    )
+                )
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Row(
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = "Welcome to $name!",
@@ -70,8 +80,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 fontSize = 16.sp
             )
         }
-
-
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -80,15 +88,27 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-
-            Text(
-                "Featured products",
-                color = Color.Black
-            )
-            Text(
-                "Our shopping catalogue will go here.",
-                color = Color.Black
-            )
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ){
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        "Laptop",
+                        fontSize = 20.sp,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        "£750",
+                        color = Color.Black
+                    )
+                }
+            }
         }
     }
 }
