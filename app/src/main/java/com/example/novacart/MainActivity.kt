@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
@@ -84,7 +85,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 fontSize = 16.sp
             )
         }
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
@@ -92,33 +93,66 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            ){
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+            item {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
                 ) {
-                    Image(
-                        painter = painterResource(R.drawable.laptop),
-                        contentDescription = "Laptop",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(160.dp),
-                        contentScale = ContentScale.Fit,
-                    )
-                    Text(
-                        "Laptop",
-                        fontSize = 20.sp,
-                        color = Color(0xFF263238),
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        "£750",
-                        color = Color(0xFF263238)
-                    )
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.laptop),
+                            contentDescription = "Laptop",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(160.dp),
+                            contentScale = ContentScale.Fit,
+                        )
+                        Text(
+                            "Laptop",
+                            fontSize = 20.sp,
+                            color = Color(0xFF263238),
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            "£750",
+                            color = Color(0xFF263238)
+                        )
+                    }
+                }
+            }
+            item {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.headphones),
+                            contentDescription = "Headphones",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(160.dp),
+                            contentScale = ContentScale.Fit
+                        )
+                        Text(
+                            "Headphones",
+                            color = Color(0xFF263238),
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            "£120",
+                            color = Color(0xFF263238)
+                        )
+                    }
                 }
             }
         }
