@@ -94,49 +94,21 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             item {
-
+                ProductCard(
+                    product = laptop
+                )
             }
             item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable.headphones),
-                            contentDescription = "Headphones",
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(160.dp),
-                            contentScale = ContentScale.Fit
-                        )
-                        Text(
-                            "Headphones",
-                            color = Color(0xFF263238),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            "£120",
-                            color = Color(0xFF263238)
-                        )
-                    }
-                }
+               ProductCard(
+                   product = headphones
+               )
             }
         }
     }
 }
 
 @Composable
-fun ProductCard(
-    productName: String,
-    productPrice: String,
-    productImage: Int
-) {
+fun ProductCard(product: Product) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -147,21 +119,21 @@ fun ProductCard(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Image(
-                painter = painterResource(productImage),
-                contentDescription = productName,
+                painter = painterResource(product.image),
+                contentDescription = product.name,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(160.dp),
                 contentScale = ContentScale.Fit,
             )
             Text(
-                productName,
+                product.name,
                 fontSize = 20.sp,
                 color = Color(0xFF263238),
                 fontWeight = FontWeight.Bold
             )
             Text(
-                productPrice,
+                product.price,
                 color = Color(0xFF263238)
             )
         }
