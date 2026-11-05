@@ -94,35 +94,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable.laptop),
-                            contentDescription = "Laptop",
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(160.dp),
-                            contentScale = ContentScale.Fit,
-                        )
-                        Text(
-                            "Laptop",
-                            fontSize = 20.sp,
-                            color = Color(0xFF263238),
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            "£750",
-                            color = Color(0xFF263238)
-                        )
-                    }
-                }
+
             }
             item {
                 Card(
@@ -155,6 +127,43 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun ProductCard(
+    productName: String,
+    productPrice: String,
+    productImage: Int
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Image(
+                painter = painterResource(productImage),
+                contentDescription = productName,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(160.dp),
+                contentScale = ContentScale.Fit,
+            )
+            Text(
+                productName,
+                fontSize = 20.sp,
+                color = Color(0xFF263238),
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                productPrice,
+                color = Color(0xFF263238)
+            )
         }
     }
 }
