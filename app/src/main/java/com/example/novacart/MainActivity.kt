@@ -94,7 +94,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(products) { product ->
+            items(products) {product ->
                 ProductCard(product = product)
             }
         }

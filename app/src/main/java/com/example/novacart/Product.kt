@@ -24,8 +24,21 @@ val keyboard = Product(
     image = R.drawable.keyboard
 )
 
+val mouse = Product(
+    name = "Mouse",
+    price = "£35",
+    image = R.drawable.mouse
+)
+
 val products = listOf(
     laptop,
     headphones,
     keyboard
+)
+
+val mutableProducts = mutableListOf(
+    laptop,
+    headphones,
+    keyboard,
+    mouse
 )
