@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.novacart.ui.theme.NovaCartTheme
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.lazy.items
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,15 +94,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            item {
-                ProductCard(
-                    product = laptop
-                )
-            }
-            item {
-               ProductCard(
-                   product = headphones
-               )
+            items(products) { product ->
+                ProductCard(product = product)
             }
         }
     }

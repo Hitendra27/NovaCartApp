@@ -8,12 +8,24 @@ data class Product(
 
 val laptop = Product(
     name = "Laptop",
-    price = "750",
+    price = "£750",
     image = R.drawable.laptop
 )
 
 val headphones = Product(
     name = "Headphones",
-    price = "120",
+    price = "£120",
     image = R.drawable.headphones
+)
+
+val keyboard = Product(
+    name = "Keyboard",
+    price = "£60",
+    image = R.drawable.keyboard
+)
+
+val products = listOf(
+    laptop,
+    headphones,
+    keyboard
 )
