@@ -4,12 +4,13 @@ import com.example.novacart.products
 
 fun main() {
 
-    val affordableProductNames = mutableProducts
-        .filter {it ->
-            it.price.removePrefix("£").toDouble() < 100
+    val sortedProducts = mutableProducts
+        .sortedBy { it ->
+            it.price.removePrefix("£").toDouble()
         }
-        .map { it.name.lowercase() }
 
-    println(affordableProductNames)
+    for (product in sortedProducts) {
+        println("${product.name}: ${product.price}")
+    }
 }
 
