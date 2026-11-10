@@ -5,23 +5,33 @@ import com.example.novacart.products
 
 fun main() {
 
-    val affordableProducts = mutableProducts.filter {
-        it.price.removePrefix("£").toDouble() < 200
+    val expensiveProducts = mutableProducts
+        .filter {
+        it.price.removePrefix("£").toDouble() > 50 }
+        .sortedBy { it.price.removePrefix("£").toDouble() }
+
+    val expensiveProductNames = expensiveProducts.map {
+        it.name.uppercase()
     }
 
-    val productLower = affordableProducts.map {
-        it.name.lowercase()
+    val expensiveProductCount = expensiveProducts.count()
+
+    val productReport = expensiveProducts.mapIndexed { index, product ->
+        "${index + 1}. ${product.name} - ${product.price}"
+    }.joinToString("\n")
+
+    println("NOVA CART PRODUCT REPORT")
+    println()
+    println(productReport)
+    println()
+    println("Total expensive products: $expensiveProductCount")
+
+    var total = 0.0
+
+    expensiveProducts.forEach {
+        total += it.price.removePrefix("£").toDouble()
     }
 
-    productLower.forEach {
-        println(it)
-    }
+    println("Total value: $total")
 
-    val result = affordableProducts.map {
-        it.price.removePrefix("£").toDouble()
-    }
-
-    result.forEach {
-        println(it)
-    }
 }
