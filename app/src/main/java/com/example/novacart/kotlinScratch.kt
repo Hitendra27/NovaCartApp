@@ -5,22 +5,27 @@ import com.example.novacart.products
 
 fun main() {
 
-    val productsByName = mutableProducts.associateBy {
-        it.name
+    val (expensiveProducts, affordableProducts) = mutableProducts
+        .partition {
+            it.price.removePrefix("£").toDouble() > 100
+        }
+
+    println("EXPENSIVE PRODUCTS")
+    expensiveProducts.forEach {
+        println("${it.name} - ${it.price}")
     }
 
-    println(productsByName)
+    println()
 
-    val productsByCategory = mutableProducts.associateBy {
-        it.category
+    println("AFFORDABLE PRODUCTS")
+    affordableProducts.forEach {
+        println("${it.name} - ${it.price}")
     }
 
-    println(productsByCategory)
+    val expensiveCount = expensiveProducts.size
+    val affordableCount = affordableProducts.size
 
-    val productName = productsByName.map {
-        it.key
-    }
-
-    println(productName[0])
+    println("The Expensive Product count is $expensiveCount")
+    println("The Affordable Product count is $affordableCount")
 
 }
