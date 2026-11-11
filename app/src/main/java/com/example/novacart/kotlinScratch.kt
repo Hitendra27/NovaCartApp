@@ -7,15 +7,13 @@ fun main() {
 
     val uniqueCategories = mutableProducts
         .distinctBy { it.category }
-        .map { it.name }
+        .map { it.category }
 
     val uniqueProducts = mutableProducts
         .distinctBy { it.name }
-
-
-
+    
     println(uniqueCategories)
     println(uniqueProducts)
-    println(uniqueProducts.size)
+    println(uniqueCategories.size)
 
 }
