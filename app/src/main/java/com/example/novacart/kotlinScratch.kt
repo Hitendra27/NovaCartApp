@@ -5,15 +5,13 @@ import com.example.novacart.products
 
 fun main() {
 
-    val uniqueCategories = mutableProducts
-        .distinctBy { it.category }
-        .map { it.category }
+    val totalValue = mutableProducts.fold(0.0) { accumilator, product ->
+        accumilator + product.price.removePrefix("£").toDouble()
+    }
 
-    val uniqueProducts = mutableProducts
-        .distinctBy { it.name }
-    
-    println(uniqueCategories)
-    println(uniqueProducts)
-    println(uniqueCategories.size)
+    println("Total: £$totalValue")
+
+    val affordableTotal = mutableProducts
+        .filter { it. }
 
 }
