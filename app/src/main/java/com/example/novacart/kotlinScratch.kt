@@ -5,12 +5,23 @@ import com.example.novacart.products
 
 fun main() {
 
-    val names = listOf("Laptop", "Mouse", "Keyboard")
-    val prices = listOf(750, 35)
+    val productNames = listOf("Laptop", "Headphones", "Keyboard", "Mouse")
+    val productPrices = listOf(750, 120, 60, 35)
 
-    val products = names.zip(prices)
+    val result = productNames.zip(productPrices)
 
-    products.forEach { (name, price) ->
+    result.forEach { (name, price) ->
         println("$name costs £$price")
     }
+
+    val employees = listOf("John", "Sarah", "David", "Emma")
+    val salaries = listOf(3000, 3500, 2800, 4000)
+
+    val result2 = employees.zip(salaries)
+
+    val totalSalary = result2.fold(0) { acc, employee ->
+        acc + employee.second
+    }
+
+    println("The Total Salary is $totalSalary")
 }
