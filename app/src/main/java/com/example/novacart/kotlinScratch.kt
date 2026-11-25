@@ -5,34 +5,12 @@ import com.example.novacart.products
 
 fun main() {
 
-    val electronics = listOf("Laptop", "Headphones")
-    val accessories = listOf("Keyboard", "Mouse")
+    val names = listOf("Laptop", "Mouse", "Keyboard")
+    val prices = listOf(750, 35)
 
-    val allCategories = listOf(
-        electronics,
-        accessories
-    )
+    val products = names.zip(prices)
 
-    val result = allCategories.flatMap { it }
-    println(result)
-
-    val result2 = allCategories.map { it }
-    println(result2)
-
-    val phones = listOf("iPhone", "Samsung")
-    val computers = listOf("Laptop", "Desktop")
-    val accessories1 = listOf("Mouse", "Keyboard")
-
-    val allCategories1 = listOf(
-        phones,
-        computers,
-        accessories1
-    )
-
-    val result3 = allCategories1.flatMap { it }
-    println(result3)
-
-    val totalCount = result3.count()
-    println("Total Product Count: $totalCount")
-
+    products.forEach { (name, price) ->
+        println("$name costs £$price")
+    }
 }
