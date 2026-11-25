@@ -5,10 +5,38 @@ import com.example.novacart.products
 
 fun main() {
 
-    val numbers = listOf(10, 20, 30, 40)
+    val products = listOf(
+        "Laptop",
+        "Mouse",
+        "Keyboard",
+        "Headphones",
+        "Monitor",
+        "Webcam"
+    )
 
-    val result = numbers.chunked(2) { group ->
+    val result = products.chunked(3)
+    println(result)
+
+    val numbers = listOf(10, 20, 30, 40, 50, 60)
+
+    val result2 = numbers.chunked(2) { group ->
         group.sum()
     }
-    println(result)
+
+    println(result2)
+
+    val productList = listOf(
+        "Laptop",
+        "Macbook",
+        "PS5",
+        "Keyboard",
+        "TV",
+        "Smartphone",
+        "Toaster",
+        "Microwave"
+    )
+
+    val result3 = productList.chunked(2)
+    println(result3)
+
 }
