@@ -36,7 +36,8 @@ fun main() {
         "Microwave"
     )
 
-    val result3 = productList.chunked(2)
+    val result3 = productList.chunked(4)
     println(result3)
+    println(result3.size)
 
 }
