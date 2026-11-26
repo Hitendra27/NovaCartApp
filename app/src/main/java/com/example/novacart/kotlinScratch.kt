@@ -5,20 +5,19 @@ import com.example.novacart.products
 
 fun main() {
 
-    val numbers = listOf(5, 10, 15, 20)
+    val products = listOf(
+        "Laptop",
+        "Mouse",
+        "Keyboard",
+        "Monitor",
+        "Webcam",
+        "Headphones"
+    )
 
-    val result = numbers.runningFold(0) { acc, number ->
-        acc + number
-    }
-
+    val result = products.drop(2)
     println(result)
 
-    val prices = listOf(20, 35, 15, 50)
-
-    val result2 = prices.runningFold(0) { acc, number ->
-        acc + number
-    }
-
+    val result2 = products.dropLast(3)
     println(result2)
 
 }
