@@ -30,6 +30,11 @@ import com.example.novacart.ui.theme.NovaCartTheme
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -131,6 +136,38 @@ fun ProductCard(product: Product) {
                 color = Color(0xFF263238)
             )
         }
+    }
+}
+
+@Composable
+fun FavouriteButton() {
+
+    var isFavourite by remember {
+        mutableStateOf(false)
+    }
+
+    Text(
+        text = if (isFavourite)  "❤️" else "♡"
+    )
+}
+
+@Composable
+fun CounterExample() {
+
+    var count by remember {
+        mutableStateOf(10)
+    }
+
+    Text(
+        text = "Count: $count"
+    )
+
+    Button(
+        onClick = {
+            count++
+        }
+    ) {
+        Text("Increase")
     }
 }
 
